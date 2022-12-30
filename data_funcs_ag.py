@@ -8,4 +8,11 @@ def get_distance(x, y):
     return cum_sum**0.5
 
 def sigmoid(x):
-    return 1 / (1 + math.exp(x))
+    return 1 / (1 + math.exp(-x))
+
+def regress_eval(features, weights, bias):
+    assert len(features) == len(weights)
+    eval = bias
+    for i in range(len(features)):
+        eval += features[i] * weights[i]
+    return eval
